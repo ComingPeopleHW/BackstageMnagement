@@ -1,0 +1,7 @@
+.part .leftBar .navCont .navList .link3 i{
+	background:rgba(237,75,62,1) ;
+	color: rgba(255,255,255,1);
+}
+.part .leftBar .navCont .navList .link3:after{
+	border-left: 14px solid rgba(237,75,62,1);
+}

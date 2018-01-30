@@ -1,0 +1,76 @@
+/*//找回密码*/
+.signPage .signCont  .signRight .toFindPswd{
+	/*找回密码框*/
+	width: 80%;
+	height: 90%;
+	margin:5% auto;
+}
+.toFindPswd .toChose{
+	width:210px ;
+	height: 28px;
+	position: relative;
+	margin-top: -4px;
+}
+.toFindPswd .choseWay{
+	float: left;
+	width: 80px;
+	height: 20px;
+	text-align: center;
+	line-height: 20px;
+	margin-right: 2px ;
+	font-family: "微软雅黑";
+	cursor: pointer;
+}
+.toFindPswd .toChose #line{
+	position: absolute;
+	width:70px;
+    height: 0;
+    top: 28px;
+    left:4px;
+    /*left:90px;*/
+    border-top: 4px solid rgb(90,180,219);
+    
+}
+.toFindPswd #questionOne{
+	border-right:1px solid gray;
+}
+.toFindPswd .whichWay{
+	width: 100%;
+	height: 200px;
+	margin-top: 2px;
+	text-align: center;
+}
+.toFindPswd .whichWay .questionList{
+	position: relative;
+	width: 100%;
+	height: 48px;
+	top:23px;
+	font-size: 16px;
+}
+.toFindPswd .whichWay .questionList div{
+	position: absolute;
+	left:80px;
+}
+.toFindPswd .whichWay .questionList .questionTitle{
+	position: absolute;
+	width: 80px;
+	left: 0px;
+	text-align: right;
+}
+.toFindPswd .whichWay .Verification{
+	position: relative;
+	display: block;
+	height: 40px;
+	width: 100%;
+	text-align: center;
+	line-height: 40px;
+	letter-spacing: 4px;
+	background: rgb(90,180,219);
+	border-radius: 4px;
+	color:#fff;
+	top: 52px;
+}
+.toFindPswd .whichWay .Verification:hover{
+	background: rgb(60,160,200);
+	cursor: pointer;
+}

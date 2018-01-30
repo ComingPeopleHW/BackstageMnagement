@@ -1,0 +1,68 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>找回密码</title>
+    <link href="~/Content/sign.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/finPswd.css" type="text/css" rel="stylesheet">
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/sign.js"></script>
+    <script src="~/Scripts/findPswd.js"></script>
+</head>
+<body>
+    <div class="signPage">
+        <div class="signCont">
+            <div class="thisTitle">
+                <img class="imglog img1" src="~/Img/xiaohui.png" />
+                <img class="imglog img2" src="~/Img/txtllogo.png">
+            </div>
+            <div class="contpart signLeft">
+                <img class="leftImg" src="~/Img/signbcg2.png">
+            </div>
+            <div class="contpart signRight">
+                <!--找回密码-->
+                <div class="toFindPswd">
+                    <div class="toChose">
+                        <span id="line"></span>
+                        <div class="choseWay" id="questionOne">根据提问</div>
+                        <div class="choseWay" id="questionTwo">根据生日</div>
+                    </div>
+                    <br />
+                    <!--提问方式一-->
+                    <form class="whichWay" id="oneWay">
+                        <div class="questionList">
+                            <span class="questionTitle">用户名：</span>
+                            <div><input type="text" name="userName" id="userName1" /></div>
+                        </div>
+                        @*<div class="questionList">
+                            <span class="questionTitle">生日：</span>
+                            <div><input type="date" name="birthDay1" /></div>
+                        </div>*@
+                        <botton class="Verification" id="submitButton1">验证</botton>
+                    </form>
+                    <!--提问方式二 生日-->
+                    <form class="whichWay" id="twoWay" style="display: none;">
+                        <div class="questionList">
+                            <span class="questionTitle">用户名：</span>
+                            <div><input type="text"   name="userName" id="userName"/></div>
+                        </div>
+                        <div class="questionList">
+                            <span class="questionTitle">生日：</span>
+                            <div><input type="date" name="birthDay"/></div>
+                        </div>
+                        <botton class="Verification" id="submitButton">验证</botton>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

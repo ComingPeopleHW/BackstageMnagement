@@ -1,0 +1,101 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>登录</title>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/sign.js"></script>
+    <link href="~/Content/sign.css" type="text/css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="signPage">
+        <div class="signCont">
+            <div class="thisTitle">
+                <img class="imglog img1" src="~/Img/xiaohui.png" />
+                <img class="imglog img2" src="~/Img/txtllogo.png">
+            </div>
+            <div class="contpart signLeft">
+                <img class="leftImg" src="~/Img/signbcg2.png">
+            </div>
+            <div class="contpart signRight">
+                <!--登录表单-->
+                <form id="formid" class="signForm" method="post">
+                    <div class="signBar signBar1">
+                        <span><img src="~/Img/user.png"></span>
+                        <input id="userName" class="bar" type="text" name="userName" placeholder="请输入用户名" />
+                        <div class="error" id="userError"></div>
+                    </div>
+                    <div class="signBar signBar2">
+                        <span><img src="~/Img/pswd.png"></span>
+                        <input id="pswd" class="bar" type="password" name="passWord" placeholder="请输入密码" />
+                        <div class="error" id="pswdError"></div>
+                    </div>
+                    <div class="signBar signBar3">
+                        <div class="whoBar">
+                            <input type="radio" name="whichType" value="管理员"><label for="nationality1">管理员</label>
+                        </div>
+                        <div class="whoBar">
+                            <input type="radio" name="whichType" value="超级管理员"><label for="nationality1">超级管理员</label>
+                        </div>
+                    </div>
+                    <div class="signBar signBar4">
+                        <input type="button" class="toSign" id="toSign" value="登录" onclick="checkSign()" />登录
+                    </div>
+                    <div class="forget"><a href="/Sign/FindPsw">忘记密码？</a></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function checkSign() {
+            if ($("#userName").val() == "" || $("#pswd").val()=="") {
+                alert("用户名或密码错误");
+                return 0;
+            }
+
+            if ($('input:radio:checked').val() != "管理员" && $('input:radio:checked').val() !="超级管理员") {
+                alert("请选择类别");
+                return 0;
+            } 
+
+            $.ajax({
+                url: "/Sign/SignVerification",//后台数据验证
+                //async: false,
+                //dataType: "json",
+                //contentType: 'application/json',
+                data: $("#formid").serialize(),
+                type: "post",
+                success: function (data) {
+                    if (data == "登陆成功") {
+                        alert(data);
+                        window.location.href = "/Article/AddArticle";
+                    }
+                    else {
+                        alert("账号或密码错误");
+                        window.location.reload();//刷新页面    
+                    }
+                    
+                },
+                error: function () {
+                    console.log(1);
+                    alert("登录失败!");
+                    window.location.reload();//刷新页面
+                }
+            })
+        }
+        //判断是否敲击了Enter键-登录：
+        $(document).keyup(function (event) {
+            if (event.keyCode == 13) {
+                $("#toSign").trigger("click");
+
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+/*查看草稿/查看已发布文章*/
+.pageRight .showArticles,.pageRight .publishedArticles{
+	width: 92%;
+	min-width: 480px;
+	height: 92%;
+	margin: 10px auto;
+	position: relative;
+}
+.showArticles .menuPart{
+	width: 100%;
+	min-width: 480px;
+	height: 42px;
+	padding-left: 8px;
+	box-sizing: border-box;
+	border-bottom:3px solid gray;
+	position: relative;
+}
+.showArticles .menuPart .choseKinds{
+	position: absolute;
+	width:80px;
+	top:3px;
+	font-weight: bold;
+}
+.showArticles .menuPart  .firstSet{
+	margin-left: 80px;
+}
+.showArticles .menuPart li{
+	float: left;
+	display: inline-block;
+	min-width: 100px;
+	margin-top: 2px;
+	margin-left: 2px;
+}
+.showArticles .menuPart .kindList{
+	width: 20%;
+}
+.showArticles .menuPart li select{
+	width: 46%;
+}
+.showArticles .menuPart li .sureSet{
+	display: block;
+	width: 70px;
+	height: 24px;
+	background:rgb(0,71,153) ;
+	color: #fff;
+	line-height: 20px;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	
+}
+.showArticles .menuPart li .sureSet:hover{
+	background: rgb(70,174,245);
+}
+.showArticles .showDraft{
+	width:100%;
+	height:320px;
+	border-bottom: 1px solid grey;
+}
+.showArticles .tablePart{
+	width:80%;
+	margin:8px auto;
+}
+.showArticles .tablePart .tHead{
+	width: 100%;
+	
+}
+
+.showArticles .tablePart .tHead tr{
+	border: 1px solid gainsboro;
+}
+.showArticles .tablePart tbody{
+	width: 100%;
+}
+.showArticles .tablePart tbody tr{
+	width: 100%;
+	text-align: center;
+	height: 24px;
+}
+.showArticles .tablePart tbody tr td{
+	overflow: hidden;
+	font-size: 18px;
+}
+.showArticles .tablePart tbody tr td:nth-child(5){
+	cursor: pointer;
+	color: rgb(0,108,183);
+}
+
+.showArticles .tablePart tbody tr td:nth-child(6){
+	cursor: pointer;
+	color: rgb(0,108,183);
+}
+.showArticles .tablePart tbody tr td:nth-child(5):hover{
+	color: rgb(0,35,128);
+}
+.showArticles .tablePart tbody tr td:nth-child(6):hover{
+	color: rgb(0,35,128);
+}
+
+/*//分页*/
+.showArticles .dividedPage{
+	position: relative;
+	bottom: -30px;
+	width: 54%;
+	height: 40px;
+	left: 0px;
+}
+.showArticles .dividedPage .divideCont{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+.showArticles .dividedPage .divideCont .fourBtn:hover{
+	color: #fff;
+	background:rgb(70,174,245) ;
+}
+
+.showArticles .dividedPage .pagelink{
+	position: absolute;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 2px;
+	padding-right: 2px;
+	border-radius: 2px;
+	width: 50px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.showArticles .dividedPage .firstPage{
+	left:0;
+}
+.showArticles .dividedPage .prev{
+	left:60px;
+}
+.showArticles .dividedPage .pageNum{
+	left:120px;
+	width: 220px;
+}
+.showArticles .dividedPage .next{
+	width: 50px;
+	left:350px;
+}
+.showArticles .dividedPage .lastPage{
+	width:50px;
+	left:410px;
+}
+
+.showArticles .dividedPage .pageNum .pagePoint{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+.dividedPage .pageNum .pagePoint li{
+	float:left;
+	width: 22px;
+	text-align: center;
+	height: 100%;
+}
+.showArticles .tablePart tbody tr{
+	margin-top: 2px;
+}
+.showArticles .tablePart tbody tr:hover{
+	background:rgba(220,220,220,0.4);
+}
+.showArticles .tablePart tbody tr td a{
+	text-decoration: none;
+	color:rgb(70,174,245) ;
+	z-index: 99;
+}
+.showArticles .tablePart tbody tr td a:hover{
+	color:rgb(0,27,38) ;
+}
+.showArticles .tablePart tbody tr td:nth-child(1){
+	width:160px;
+	display: inline-block;
+	text-align: left;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+/*响应变化*/
+@media only screen and (min-width: 769px) and (max-width: 900px) {
+	.showArticles .tablePart tbody tr td:nth-child(1){
+		width:100px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+}
+@media only screen and (min-width: 640px) and (max-width: 770px) {
+	.showArticles .menuPart{
+		height: 56px;
+		padding-left: 24px;
+	}
+	.showArticles .menuPart .tobr{
+		margin-left: 80px;
+	}
+	.showArticles .menuPart .kindList{
+		width: 30%;
+		float: left;
+	}
+	.showArticles .tablePart tbody tr td:nth-child(1){
+		width:80px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		
+	}
+
+}
+@media only screen and (min-width:100px) and (max-width: 830px) {
+	.showArticles .tablePart tbody tr td{
+		font-size: 12px;
+
+	}
+}
+@media only screen and (min-width: 100px) and (max-width: 640px) {
+	.showArticles .menuPart{
+		height: 56px;
+		padding-left: 0px;
+	}
+	.showArticles .menuPart .tobr{
+	}
+	.showArticles .menuPart li{
+		min-width: 50px;
+	}
+	.showArticles .menuPart .kindList{
+		width: 20%;
+		float: left;
+	}
+	.showArticles .menuPart .sureButn{
+		float: left;
+		width: 50px;
+	}
+	.showArticles .menuPart  .sureButn	.sureSet{
+		width:50px;
+	}
+	/*分页*/
+	.showArticles .dividedPage{}
+	.showArticles .tablePart{
+		width:100%;
+	}
+	.showArticles .tablePart tbody tr td{
+		font-size: 12px;
+
+	}
+}

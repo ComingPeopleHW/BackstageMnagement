@@ -1,0 +1,258 @@
+*{ margin:0; padding: 0; }
+html,body,.pageTop{
+	min-width: 480px;
+	background: #fff;
+}
+ul,li{ list-style: none;}
+.part{
+	box-sizing: border-box;
+}
+.thisContent{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	min-width: 480px;
+}
+/*菜单*/
+.menu{
+	position: fixed;
+	display: none;
+}
+/*头部*/
+.pageTop{
+	position: fixed;
+	min-width: 480px;
+	width: 100%;
+	height:60px;
+	top:0;
+	left:0;
+	background:rgb(0,108,183);
+	font-size: 14px;
+	z-index: 90;
+}
+.pageTop .topLogo{
+	position: absolute;
+	left:0;
+	top:0;
+	height:100%;
+	width: 220px;
+	line-height:60px;
+	color:#fff;
+	text-align: center;
+	font-size: 14px;
+	font-family: "微软雅黑";
+	background:rgb(0,71,153);
+}
+.topLogo .college{
+	font-weight: bolder;
+	font-size: 24px;
+}
+.pageTop .topTxt{
+	position:absolute;
+	height: 32px;
+	line-height: 32px;
+	top:14px;
+	text-align: center;
+	color: #fff;
+	font-family: "微软雅黑";
+	border-radius: 4px;
+	box-shadow: 0 0 2px rgb(0,93,160);
+}
+.pageTop .helloWords{
+	
+	width: 260px;
+	right:130px;
+	background: rgb(130,201,105);
+}
+.pageTop .exitCont{
+	width: 100px;
+	right: 20px;
+	background:rgb(0,129,221);
+}
+.pageTop .exitCont:hover{
+	background:rgb(58,170,250);
+}
+.pageTop .exitCont .exit{
+	display: block;
+	width: 100%;
+	height: 100%;
+	line-height: 32px;
+	cursor: pointer;
+	color: #fff;
+	font-family: "微软雅黑";
+	border-radius: 4px;
+	text-decoration: none;
+}
+.pageTop .exitCont a{
+	text-decoration: none;
+}
+.pageTop .exitCont a:hover{
+	text-decoration: underline;
+}
+/*左边-导航部分*/
+.pageLeft{
+	position: fixed;
+	width: 220px;
+	height: 100%;
+	padding-top:60px;
+	left:0;
+	background: rgb(19,27,38);
+	z-index: 40;
+}
+.pageLeft .userId{
+	width: 100%;
+	height: 80px;
+	box-sizing: border-box;
+	margin-top: 10px;
+	padding-top: 42px;
+	border-bottom: 1px dotted rgba(255,255,255,0.3);
+	text-align: center;
+	color: rgba(255,255,255,0.9);
+}
+.pageLeft .leftBar{
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 79%;
+	box-sizing: border-box;
+	min-height: 270px;
+	margin:0 auto;
+	padding-top: 8px;
+}
+.leftBar .navCont{
+	margin-top: 13px;
+}
+.leftBar .navCont .navList{
+	width:100%;
+	height:48px;
+	line-height: 48px;
+	box-sizing: border-box;
+	padding-left: 24px;
+	
+}
+.leftBar .navCont .navList5{
+	display: none;
+}
+.leftBar .navCont .navList .link{
+	display: block;
+	width: 100%;
+	height:100%;
+	text-decoration: none;
+	color: rgba(255,255,255,0.8);
+	position: relative;
+}
+.leftBar .navCont .navList .link:hover{
+	color: rgba(255,255,255,1);
+}
+.navCont .navList .link .decoration{
+	position: absolute;
+	display: block;
+	top:0;
+	left:196px;
+	width:4px;
+	height:100%;
+}
+.navCont .navList .link span{padding-right: 14px;}
+.navCont .navList a:hover after{
+}
+.navCont .navList a:after{
+	display: block;
+	content: '';
+	position: absolute;
+	width:0px;
+	height: 0px;
+	top:12px;
+	left:200px;
+	border-top:12px solid transparent;
+	border-bottom:12px solid transparent;
+}
+
+/*右边部分*/
+.pageRight{
+	position: absolute;
+	width: 100%;
+	height: 96%;
+	box-sizing: border-box;
+	padding-left:200px;
+	padding-top: 60px;
+}
+.pageRight .pageRightCont{
+	width: 90%;
+	height: 90%;
+	margin:0 auto;
+	margin-top:20px;
+	z-index: 8;
+}
+
+
+@media only screen and (min-width: 640px) {
+	.pageLeft{
+		display: block;
+	}
+}
+/*480px*/
+@media only screen and (min-width: 100px) and (max-width: 640px) {
+	.pageTop{
+		background: rgb(0,71,153);
+	}
+	/*菜单*/
+	.menu{
+		position: fixed;
+		display:block;
+		width: 35px;
+		height: 35px;
+		top:12.5px;
+		right:10px;
+		z-index: 100;
+	}
+	.menu img{
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+	.pageLeft{
+		display: block;
+		width: 100%;
+		height: 264px;
+		padding-top:20px;
+	}
+	.pageLeft .userId{
+		width: 100%;
+		height: 20px;
+	}
+	.pageLeft .leftBar{
+		width: 100%;
+		min-height: 270px;
+	}
+	.leftBar .navCont{
+		margin-top: 13px;
+	}
+	.leftBar .navCont .navList{
+		width:100%;
+		height:32px;
+		line-height: 32px;
+		text-align: center;
+	}
+	.navCont .navList .link .decoration{
+		display: none;
+	}
+	.navCont .navList a:after{
+		display:none;
+	}
+	.pageRight{
+		padding-left:0px;
+	}
+	.pageTop .exitCont{
+		display: none;
+	}
+	.leftBar .navCont .navList5{
+		display:block;
+	}
+	.pageTop .helloWords{
+		display: none;
+	}
+	.pageLeft .leftBar .showLeftTime{
+		display: none;
+	}
+	
+}

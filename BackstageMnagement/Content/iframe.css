@@ -1,0 +1,8 @@
+/*可以在这里添加你自己的css*/
+@media only screen and (min-width: 640px) and (max-width: 900px) {
+	.edui-default .edui-editor-iframeholder {
+	    position: relative;
+	    height: 100px;
+	}
+
+}

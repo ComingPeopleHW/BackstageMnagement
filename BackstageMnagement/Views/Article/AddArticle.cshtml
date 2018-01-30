@@ -1,0 +1,306 @@
+﻿@model BackstageMnagement.Models.ArticleInfo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <title>添加文章 </title>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/common.js"></script>
+    <script src="~/Scripts/addAnArticle.js"></script>
+    <script src="~/ueditor/ueditor.config.js"></script>
+    <script src="~/ueditor/ueditor.all.js"></script>
+    <script src="~/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <link href="~/JSCSS/source/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="~/JSCSS/source/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/JSCSS/css/common.css" rel="stylesheet" type="text/css">
+    <link href="~/JSCSS/css/addAnArticle.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <!--首次登陆补全信息-->
+    <div class="firstCome" id="firstCome" style="display: none;">
+        <div class="myInformation">
+            <div class="thisTitle">请补全个人资料</div>
+            <div class="tips">*请填写真实出生日期便于密码找回</div>
+            <form class="information">
+                <ul class="perfectInfo">
+                    <li class="perInfoList">
+                        <span>ID：</span>
+                        <input value="20158442" placeholder="登录账号" />
+                    </li>
+                    <li class="perInfoList">
+                        <span>昵称：</span>
+                        <input />
+                    </li>
+                    <li class="perInfoList">
+                        <span>密码保护问题：</span>
+                        <select>
+                            <option>我读的第一所学习名称？</option>
+                            <option>我最喜欢吃的菜？</option>
+                            <option>我最喜欢的颜色？</option>
+                            <option>我的一句座右铭？</option>
+                        </select>
+                    </li>
+                    <li class="perInfoList">
+                        <span>你的答案：</span>
+                        <input />
+                    </li>
+                    <li class="perInfoList">
+                        <span>出生日期：</span>
+                        <input type="date" />
+                    </li>
+                </ul>
+                <button class="toPerfectInfo">
+                    <a href="javascript:;" id="toPerfectInfo">提交</a>
+                </button>
+            </form>
+        </div>
+    </div>
+    <!--首次登陆补全信息--end-->
+    <!--小菜单图标-->
+    <div class="menu">
+        <img id="menuLogo" src="~/Img/menu.png">
+    </div>
+    <!--小菜单图标---end-->
+    <!--主要内容-->
+    <div class="thisContent">
+        <!--头部-->
+        <div class="part pageTop">
+            <div class="topLogo"> <span class="college"><i>校园信息化</i></span>&nbsp;管理平台</div>
+            <div class="topTxt helloWords" id="helloWords">
+                您好！欢迎来到校园信息后台管理系统
+            </div>
+            <div class="topTxt exitCont">
+                <a class="exit" id="exita">
+                    退出系统
+                </a>
+            </div>
+        </div>
+        <!--头部-end--->
+        <!--左边-->
+        <div class="part pageLeft">
+            <div class="userId">@ViewBag.userName</div>
+            <div class="leftBar">
+                <ul class="navCont">
+                    <li class="navList navList1" style="background:rgba(237,75,62,1);">
+                        <a class="link link1" href="/Article/AddArticle/">
+                            <i class="decoration"></i>
+                            <span><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+                            编辑文章
+                        </a>
+                    </li>
+                    <li class="navList navList2">
+                        <a class="link  link2" href="lookDraft.html">
+                            <i class="decoration"></i>
+                            <span><i class="fa fa-file-archive-o" aria-hidden="true"></i></span>
+                            查看草稿
+                        </a>
+                    </li>
+                    <li class="navList navList3">
+                        <a class="link  link3" href="publishedArticle.html">
+                            <i class="decoration"> </i>
+                            <span><i class="fa fa-folder-o" aria-hidden="true"></i></span>
+                            历史文章
+                        </a>
+                    </li>
+                    <li class="navList navList4">
+                        <a class="link  link4" href="personalInfo.html">
+                            <i class="decoration"></i>
+                            <span><i class="fa fa-id-card-o" aria-hidden="true"></i></span>
+                            个人资料
+                        </a>
+                    </li>
+                    <li id="exit2" class="navList navList5">
+                        <a class="link  link5"  >
+                            <i class="decoration"></i>
+                            <span><i class="fa fa-id-card-o" aria-hidden="true"></i></span>
+                            退出系统
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <!--左边---end-->
+        <!--右边-->
+        <div class="part pageRight">
+            <div class="pageRightCont">
+                @using (Html.BeginForm("ArticleContent", "Article", FormMethod.Post, new { @class = "theForm", id = "addArticleForm" }))
+                 {
+                    <div class="colum colum1">
+                        <!--文字头部 -->
+                        <table class="theTable">
+                            <tr>
+                                <td class="tableTitle">标题：</td>
+                                <td style="width: 100%; height:42px;box-sizing: border-box; padding-left: 60px;margin-top:-42px;" rowspan="1" colspan="3">
+                                    <input class="putTitle" style="height: 32px; width: 100%;line-height: 32px;" placeholder="标题最多不可超过30字" name="Title" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="tableTitle">分类：</td>
+                                <td>
+                                    校区&nbsp;
+                                    <select name="College">
+                                        <option selected="selected" value="全校">全校</option>
+                                        <option value="雅安">雅安</option>
+                                        <option value="都江堰">都江堰</option>
+                                        <option value="成都">成都</option>
+                                    </select>
+                                </td>
+                                <td class="tableTitle">
+                                    年级&nbsp;
+                                    <select name="SchoolYear">
+                                        <option selected="selected" value="大一">大一</option>
+                                        <option value="大二">大二</option>
+                                        <option value="大三">大三</option>
+                                        <option value="大四">大四</option>
+                                        <option value="研究生">研究生？</option>
+                                    </select>
+                                </td>
+                                <td class="tableTitle">
+                                    类型&nbsp;
+                                    <select name="Category">
+                                        <option selected="selected" value="学习">学习</option>
+                                        <option value="生活">生活</option>
+                                        <option value="招聘">招聘</option>
+                                        <option value="培训">培训</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                            <td>正文：</td>
+                            <!--<td>
+                            </td> -->
+                            </tr>
+
+                        </table>
+                    </div>
+
+                    <script type="text/javascript">
+                        var editor = new baidu.editor.ui.Editor({
+                            iframeCssUrl: '/ueditor/themes/iframe.css',//样式路径
+                            initialContent: 'Write here',//初始化编辑器内容
+                            autoHeightEnabled: true,//高度自动增长
+                            autoWidthEnabled: true,
+                            minFrameHeight: 500,//最小高度
+                            autoFloatEnabled: true,
+                            initialFrameWidth: 1600,
+                            initialFrameHeight: 680,
+                            toolbars: [
+                                ['fullscreen', 'source', 'undo', 'redo',
+                                'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc',
+                                'rowspacingtop', 'rowspacingbottom', 'lineheight', '|',
+                                'customstyle', 'paragraph', 'fontfamily', 'fontsize', '|',
+                                'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'touppercase', 'tolowercase', '|',
+                                'link', 'unlink', 'anchor', '|', 'imagenone', 'imageleft', 'imageright', 'imagecenter', '|',
+                                'simpleupload', 'insertimage', 'emotion', 'scrawl', 'insertvideo', 'music', 'attachment', 'insertframe', 'insertcode', 'webapp', 'pagebreak', 'template', 'background', '|',
+                                'horizontal', 'date', 'time', 'spechars', 'snapscreen', 'wordimage', '|',
+                                'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', 'charts', '|',
+                                'print', 'preview', 'searchreplace', 'drafts', 'help']
+                        ]
+                    });
+                    editor.render('editor');
+                    </script>
+                    <textarea id="editor" name="Contents"></textarea>
+                    <div class="choice topublic">
+                        <input type="button" value="发布" id="submitButton" />
+                        <input type="button" value="存为草稿" id="draftSubmitButton" />
+                    </div>
+
+                 }
+            </div>
+
+        </div>
+        <!--右边---end-->
+    </div>
+    <!--主要内容--end-->
+
+    <script>
+        $(document).ready(function () {
+              $("#submitButton").click(function () {
+                      if ($("input[name='Title']").val() == "") {
+                                    alert("标题不可未空");
+                                    return 0;
+                      }
+
+                       if ($("textarea[name='Contents']").val() == "") {
+                             alert("请填充内容");
+                             return 0;
+                       }
+                               
+                            $.ajax({
+                                url: "/Article/ArticleContent",
+                                type: "post",
+                                data: $("#addArticleForm").serialize(),
+                                success: function (e) {
+                                    if (e == "发布成功") {
+                                        alert(e);
+                                        location.href = "/Article/AddArticle/";
+                                    }
+                                    else {
+                                        alert("添加失败，请重新尝试");
+                                        location.reload();
+                                    }
+                                    
+                                },
+                                error: function () {
+                                    alert("server error");
+                                }
+                            })
+            })
+
+              $("#draftSubmitButton").click(function () {
+                  if ($("input[name='Title']").val() == "") {
+                      alert("标题不可未空");
+                      return 0;
+                  }
+
+                  if ($("textarea[name='Contents']").val() == "") {
+                      alert("请填充内容");
+                      return 0;
+                  }
+
+
+                  $.ajax({
+                      url: "/Article/DraftContent",
+                      type: "post",
+                      data: $("#addArticleForm").serialize(),
+                      success: function (e) {
+                          if (e == "发布成功") {
+                              alert("存储成功");
+                              location.href = "/Article/AddArticle/";
+                          }
+                          else {
+                              alert("添加失败，请重新尝试");
+                              location.reload();
+                          }
+
+                      },
+                      error: function () {
+                          alert("server error");
+                      }
+                  })
+              });
+
+              $("#exita").click(function () {
+                  $.ajax({
+                      url: "/Article/Exit",
+                      type: "post",
+                      success: function () {
+                          location.href="/Sign/Sign/"
+                      },
+                      error: function () {
+                          alert("server error");
+                      }
+                  })
+              });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+.pageRight{
+	
+}
+.pageRight .articleDetail{
+	width: 90%;
+	height: 96%;
+	margin: 4px auto;
+	
+	/*border:1px solid red;*/
+}
+.pageRight .articleDetail .netAction{
+	width:100%;
+	height: 32px;
+	font-size: 18px;
+	cursor: pointer;
+	text-align: left;
+}
+
+.pageRight .articleDetail .netAction .action{
+	color: #000;
+	font-weight: bolder;
+	text-decoration: none
+}
+.articleDetail .bottomDo{
+	margin-top: 12px;
+}
+.pageRight .articleDetail .netAction .action:hover{
+	color: rgb(70,174,245);
+	
+}
+.pageRight .articleDetail .showDetail{
+	width:100%;
+	height: 32px;
+	/*border: 1px solid red;*/
+	position: relative;
+	text-align: center;
+}
+.pageRight .articleDetail .showDetail .thisTitle{
+	width:100%;
+	height: 32px;
+	position: relative;
+	top:0px;
+	/*border: 1px solid plum;*/
+	font-size: 24px;
+	font-weight: blod;
+}
+.articleDetail .showDetail .thisTitle .lis{
+	position: absolute;
+	display: inline-block;
+	font-size: 14px;
+	color: rgba(40,40,40,0.7);
+	/*border: 1px solid green;*/
+	width:140px;
+	height: 20px;
+	top:52px;
+}
+.articleDetail .showDetail .thisTitle .person{
+	left:50%;
+}
+.articleDetail .showDetail .thisTitle .tim{
+	left:50%;
+	margin-left: 140px;
+}
+.articleDetail .showDetail .mainCont{
+	width:100%;
+	/*netActionground: gainsboro;*/
+	position: absolute;
+	top:78px;
+	padding-bottom: 10px;
+	/*border: 2px solid blue;*/ 
+}
+@media only screen and (min-width: 100px) and (max-width: 880px) {
+	.pageRight .articleDetail .showDetail .thisTitle{
+		font-size: 20px;
+	}
+	.articleDetail .showDetail .thisTitle .person{
+		left:30%;
+	}
+	.articleDetail .showDetail .thisTitle .tim{
+		left:30%;
+		margin-left: 140px;
+	}
+}
+
